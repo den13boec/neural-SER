@@ -6,6 +6,8 @@ Speech emotion recognition using convolutional neural networks
 2. Описание решения
 3. Результат
 
+## Описание задачи
+
 Использовать четыре распространённых датасета:
 
 - [Toronto emotional speech set (TESS)](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess)
@@ -13,4 +15,42 @@ Speech emotion recognition using convolutional neural networks
 - [Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio)
 - [Crowd Sourced Emotional Multimodal Actors Dataset (CREMA-D)](https://www.kaggle.com/datasets/ejlok1/cremad)
 
-Распознавание шести базовых эмоций по Экману: anger, disgust, fear, happiness, neutral, sadness, surprise.
+Распознать шесть базовых эмоций по Экману:
+
+- anger
+- disgust
+- fear
+- happiness
+- neutral
+- sadness
+- surprise
+  
+С использованием пяти моделей свёрточных нейронных сетей:
+
+- VGG19
+- Xception
+- InceptionV3
+- ResNet101V2
+- DenseNet201
+
+Расчитать метрики точности классификации:
+
+- accuracy
+- precision
+- recall
+- f1-score
+
+## Описание решения
+
+Зависимости:
+
+- pandas
+- numpy
+- matplotlib
+- tensorflow v2
+- scikit-learn
+- seaborn
+
+`preprocess_data.ipynb` - составление csv таблиц с путями до файлов и эмоциями
+
+`modeling.ipynb` - обучение моделей, визуализация истории обучения, расчёт метрик, проверка обучения моделей на тестовом наборе
