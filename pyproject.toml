@@ -1,0 +1,24 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Denis Borisov", email = "den-boris@list.ru"},
+]
+dependencies = [
+    "pandas>=2.0.3",
+    "numpy>=1.24.4",
+    "librosa>=0.10.1",
+    "seaborn>=0.12.2",
+    "matplotlib>=3.7.2",
+    "ipykernel>=6.25.1",
+    "kaggle>=1.5.16",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "autopep8>=2.0.3",
+]
