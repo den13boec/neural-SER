@@ -1,31 +1,32 @@
 # neural-SER
 
-Speech emotion recognition using convolutional neural networks
+This is master's thesis - speech emotion recognition using convolutional neural networks
 
-1. Описание задачи
-2. Описание решения
-3. Результат
+## Task description
 
-## Описание задачи
-
-Использовать четыре распространённых датасета:
-
-- [Toronto emotional speech set (TESS)](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess)
-- [Surrey Audio-Visual Expressed Emotion (SAVEE)](https://www.kaggle.com/datasets/ejlok1/surrey-audiovisual-expressed-emotion-savee)
-- [Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio)
-- [Crowd Sourced Emotional Multimodal Actors Dataset (CREMA-D)](https://www.kaggle.com/datasets/ejlok1/cremad)
-
-Распознать шесть базовых эмоций по Экману:
+Recognize neutral emotion and Ekman's six basic emotions:
 
 - anger
 - disgust
 - fear
 - happiness
-- neutral
 - sadness
 - surprise
-  
-С использованием пяти моделей свёрточных нейронных сетей:
+
+Calculate classification accuracy metrics:
+
+- accuracy
+- precision
+- recall
+- f1-score
+
+## Solution
+
+`preprocess_data.ipynb` - compiling csv tables with paths to files and emotions
+
+`modeling.ipynb` - training models, visualizing training history, calculating metrics, checking model training on a test set
+
+Used convolutional neural network models:
 
 - VGG19
 - Xception
@@ -33,24 +34,43 @@ Speech emotion recognition using convolutional neural networks
 - ResNet101V2
 - DenseNet201
 
-Расчитать метрики точности классификации:
+Used datasets:
 
-- accuracy
-- precision
-- recall
-- f1-score
+- [Toronto emotional speech set (TESS)](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess)
+- [Surrey Audio-Visual Expressed Emotion (SAVEE)](https://www.kaggle.com/datasets/ejlok1/surrey-audiovisual-expressed-emotion-savee)
+- [Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio)
+- [Crowd Sourced Emotional Multimodal Actors Dataset (CREMA-D)](https://www.kaggle.com/datasets/ejlok1/cremad)
 
-## Описание решения
+## Results
 
-Зависимости:
+### Combined dataset
 
-- pandas
-- numpy
-- matplotlib
-- tensorflow v2
-- scikit-learn
-- seaborn
+| ![Number of emotions](./public/combined-dataset-emotions.png) |
+|:------------------------------------------------------------:|
+|           _Number of emotions in combined dataset_           |
 
-`preprocess_data.ipynb` - составление csv таблиц с путями до файлов и эмоциями
+### Models training
 
-`modeling.ipynb` - обучение моделей, визуализация истории обучения, расчёт метрик, проверка обучения моделей на тестовом наборе
+Using the Xception model as an example for results:
+
+|                   ![Xception loss function](./public/xception-loss-function.png)                   |
+|:-------------------------------------------------------------------------------------------------:|
+| _Xception loss function for training and validation data of combined dataset vs number of epochs_ |
+
+|                         ![Xception accuracy](./public/xception-accuracy.png)                        |
+|:--------------------------------------------------------------------------------------------------:|
+| _Xception model accuracy for training and validation data of combined dataset vs number of epochs_ |
+
+| ![Confusion matrix](./public/xception-confusion-matrix.png) |
+|:----------------------------------------------------------:|
+|        _Confusion matrix for trained Xception model_       |
+
+### Results tables
+
+| ![Metrics](./public/metrics-results.png) |
+|:---------------------------------------:|
+|           _Calculated metrics_          |
+
+| ![Accuracy for each emotion](./public/accuracy-emotion.png) |
+|:----------------------------------------------------------:|
+|            _Accuracy for each emotion and model_           |
