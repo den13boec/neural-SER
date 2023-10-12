@@ -8,7 +8,6 @@ def cut_of_beginning(url: str) -> str:
         res = res.replace("https://www.kaggle.com/datasets/", "")
     return res
 
-
 def download_datasets(urls: list[str]):
     base_dir = "./data"
 
@@ -20,9 +19,10 @@ def download_datasets(urls: list[str]):
 
     for url in urls:
         dataset_name = cut_of_beginning(url)
-
+        
         # Create the dataset directory
-        dataset_dir = os.path.join(base_dir, dataset_name)
+        dataset_folder = dataset_name.split("/")[-1]
+        dataset_dir = os.path.join(base_dir, dataset_folder)
         os.makedirs(dataset_dir, exist_ok=True)
 
         # Download the dataset
